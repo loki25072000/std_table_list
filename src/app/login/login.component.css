@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: url(../../assets/images/background.jpg);
+}
+label{
+    color: black;
+    display: flex;
+    margin-left: 20%;
+    font-size: 19px;
+}
+   
+.fa-solid{
+    font-size: 27px;
+    margin-top: 13px;
+    color: #056a58;
+    margin-left: 9px;
+}
+input{
+    
+    border: none;
+    outline: none;
+    padding: 5px;
+    /* background-color: transparent; */
+    background-color: rgb(247, 245, 245);
+    width: 60%;
+    border-radius: 7px;
+}
+input:focus{
+    border-bottom: 1px solid gray;
+    outline: none;  
+}
+.login{
+    margin-top: 40px;
+  
+}
+small{
+    display: block;
+    color: red;
+    font-size: 14px;
+    font-weight: 700;
+}
+.formGroup{
+    margin-top: 10px;
+}
+#signupBtn{
+    width: 60%;
+    margin-left: 13px;
+    padding: 5px 0;
+    margin-top: 10px;
+}
+#loginBtn{
+    width: 60%;
+    margin-left: 5px;
+    padding: 5px 0;
+    margin-top: 10px;
+}
+#form{
+    animation: myAnimae 2.7s ease-in-out;
+}
+#eye{
+    font-size: 17px;
+    position: absolute;
+   cursor: pointer;
+    right: 107px;
+    
+}
+@keyframes myAnimae{
+    0%{
+        transform: translateY(-100%);
+    }
+  50%{
+    transform: rotate(360deg);
+  }
+  75%{
+    transform: rotate(-360deg);
+  }
+    100%{
+        transform: translateY(0%);
+    }
+}

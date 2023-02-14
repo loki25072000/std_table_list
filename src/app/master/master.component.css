@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.form-check-label{
+    display: flex;
+    margin-left: 10px;
+}
+input{ 
+    /* display: flex; */
+    text-align: center;
+    width: 80%;
+    margin-left: 10px;
+}
+.sucess{
+color: rgb(4, 158, 4);
+font-weight: bold;
+}
+.danger{
+   color: red;
+   font-weight: bold;
+}
+td{
+    padding: 10px 0px;
+    text-align: center;
+}
+th{
+   text-align: center;
+   background-color: gainsboro;
+   font-size: 19px;
+   color: darkblue;
+}
+th,td{
+    border: 1px solid gray;
+}
+.fa-plus{
+    font-size: 25px;
+    background-color: #2babb0;
+    padding: 5px;
+    color: floralwhite;
+    border-radius: 6px;
+    transition: 0.5s ease-in;
+    width: 32px;
+    /* margin-top: 10px;
+    height: 33px; */
+}
+.fa-plus:hover{
+    background-color: #147a7e;
+}
+h4{
+    color: #ed1313;
+    text-shadow: 0 0 4px #5c3b5c;
+    margin-left: 37%;
+    letter-spacing: 4px;
+    transition: 1.5s ease-in-out;
+}
+
+i{
+    cursor: pointer;
+}
+.form-check-input{
+    cursor: pointer;
+}
+.custom-control-input{
+    cursor: pointer;
+}
+/* this.details[index].patchValue(val)
+   console.log( this.stdArrays[index].patchValue(val)) */

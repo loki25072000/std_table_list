@@ -1,0 +1,40 @@
+a{
+    color: white;
+    font-size: 20px;
+   
+}
+a:hover{
+  color: orange;
+}
+.nav-pills .nav-link.active{
+  color: #000;
+  background-color: #10a19f;
+  border-radius: 22%;
+  /* outline: none; */
+  /* border: none; */
+  border-bottom: 1px solid white;
+}
+ul{
+  margin-left: 80%;
+}
+#myName{
+  font-family: emoji;
+}
+/* #myName::after{
+  background-color: black;
+  display: block;
+  content: '';
+  height: 2px;
+  width: 78px;
+  box-shadow: 0px 0px 3px white;
+} */
+#initial{
+  background-color: white;
+  color: #10a19f;
+  padding: 5px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 23px;
+  border: 1px solid springgreen;
+  /* transition: 2s ease-in-out; */
+}

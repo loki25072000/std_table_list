@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   
+}
+
+.form-check-label {
+    display: flex;
+    margin-left: 10px;
+}
+
+input {
+    display: flex;
+    text-align: center;
+    width: 80%;
+    margin-left: 10px;
+}
+
+td {
+    padding: 10px 0px;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+   background-color: gainsboro;
+   font-size: 19px;
+   color: darkblue;
+}
+
+th,
+td {
+    border: 1px solid gray;
+}
+
+h4 {
+    color: black;
+    text-shadow: 0 0 4px magenta;
+    margin-left: 37%;
+}
+
+i {
+    cursor: pointer;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.custom-control-input {
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+
+
+<!-- another table -->
+<div class="row mt-4">
+    <div class="container" style="margin: auto;">
+        <table style="width: 100%;">
+            <thead>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>GENDER</th>
+                <th>EDUCATION</th>
+                <!-- <th>ELIGIABLE</th>
+                <th>EDIT</th>
+                <th>DELETE</th> -->
+            </thead>
+            <tbody class="tableData" *ngFor="let data of stdArrays ; let i=index">
+               
+                <tr  *ngIf="data.status">
+                    <td>{{i+1}}</td>
+                    <td>{{data.name | uppercase}}</td>
+                    <td>{{data.age}}</td>
+                    <td>{{data.gender}}</td>
+                    <td>{{data.education}}</td>
+                   
+                    <!-- <td>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1{{i}}" [checked]="data.status" (change)="onStatusChange(data)">
+                            <label class="custom-control-label" for="customSwitch1{{i}}"></label>
+                          </div>
+                    </td>
+                    <td><i id="{{i}}" class="fa-solid fa-pen-to-square" (click)="patchValues(data)"></i></td>
+                    <td><i id="{{i}}" class="fa-solid fa-trash"></i></td> -->
+                </tr>
+          
+            </tbody>
+        </table>
+    </div>
+</div>
