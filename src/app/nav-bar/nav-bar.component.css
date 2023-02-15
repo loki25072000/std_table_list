@@ -9,10 +9,10 @@ a:hover{
 .nav-pills .nav-link.active{
   color: #000;
   background-color: #10a19f;
-  border-radius: 22%;
-  /* outline: none; */
-  /* border: none; */
-  border-bottom: 1px solid white;
+  border-radius: 17%;
+  border-bottom: 3px solid white;
+  padding: 5px 9px;
+  transition: 0.5s
 }
 ul{
   margin-left: 80%;
@@ -37,4 +37,5 @@ ul{
   font-size: 23px;
   border: 1px solid springgreen;
   /* transition: 2s ease-in-out; */
+ 
 }

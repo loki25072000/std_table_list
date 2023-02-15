@@ -18,15 +18,7 @@ export class MasterComponent implements OnInit {
     });
   }
   constructor(private formbuilder: FormBuilder) {
-    // this.studentForm = this.formbuilder.group({
-    //   'name': [null, Validators.required],
-    //   'age': [null, Validators.required],
-    //   'gender': [null, Validators.required],
-    //   'education': [null, Validators.required],
-    //   'eligible': [null, Validators.required],
-    //   status: false,
-    //   'hobbies':new FormArray([])
-    // })
+
   }
 
   createItem(): FormGroup {
@@ -97,29 +89,32 @@ export class MasterComponent implements OnInit {
 
   }
   status;
-  onStatusChange(val,index) {
-// console.log(this.stdArrays)
-// debugger
-this.stdArrays
-for(let i=0;i<this.stdArrays.length;i++){
- 
- var arr = this.stdArrays[i]
- if(arr==val){
-  // $('#statusModal').modal('show')
-  if(val.status==false){
-   arr.status=true
-  //  console.log(arr)
-  }
- else if(val.status==true){
-   arr.status=false
-  }
-  let newArray= this.stdArrays[index].arr
-//   console.log(newArray)
-//  console.log(this.stdArrays)
-  localStorage.setItem('niro',JSON.stringify(this.stdArrays))
-  // console.log(this.stdArrays)
- }
-}
+  staId;
+  onStatusChange(val, index, e) {
+    //  console.log( e.target.id)
+    this.staId = e.target.id
+    // console.log(this.stdArrays)
+    // debugger
+    this.stdArrays
+    for (let i = 0; i < this.stdArrays.length; i++) {
+
+      var arr = this.stdArrays[i]
+      if (arr == val) {
+        $('#statusModal').modal('show')
+        if (val.status == false) {
+          arr.status = true
+          //  console.log(arr)
+        }
+        else if (val.status == true) {
+          arr.status = false
+        }
+        let newArray = this.stdArrays[index].arr
+        //   console.log(newArray)
+        //  console.log(this.stdArrays)
+        localStorage.setItem('niro', JSON.stringify(this.stdArrays))
+        // console.log(this.stdArrays)
+      }
+    }
 
   }
   tablestatus;
@@ -128,58 +123,36 @@ for(let i=0;i<this.stdArrays.length;i++){
     // this.tablestatus = data.status = true
     // console.log(this.tablestatus)
 
-
   }
   confirmStatus() {
- this.stdArrays;
-//  for(let i=0;i<this.stdArrays.length;i++){
-//  let boolValues= this.stdArrays[i]
-//  console.log(boolValues.status)
-//  if(boolValues.status==true){
-// boolValues.status=true
-// let newArray= this.stdArrays[i].boolValues
-// console.log(newArray)
-// localStorage.setItem('niro',JSON.stringify(this.stdArrays))
-//  }
-//  else if(boolValues.status==false){
-// boolValues.status=false;
-// let newArray= this.stdArrays[i].boolValues
-// console.log(newArray)
-// localStorage.setItem('niro',JSON.stringify(this.stdArrays))
-//  }
-//  }
-
     $('#statusModal').modal('hide')
 
   }
   cancelStaus() {
-for(let i=0;i<this.stdArrays.length;i++){
-  this.stdArrays[i]
-  if(this.stdArrays[i].status==false){
-  let val=  this.stdArrays[i].status=true
-    this.stdArrays[i].val
-    localStorage.setItem('niro',JSON.stringify(this.stdArrays))
-  console.log(this.stdArrays[i])
-  }
-  else if(this.stdArrays[i].status==true){
-   let val2= this.stdArrays[i].status=false
-   this.stdArrays[i].val2
-   localStorage.setItem('niro',JSON.stringify(this.stdArrays))
-  }
-}
+    // for(let i=0;i<this.stdArrays.length;i++){}
+    console.log(this.staId);
+
+    if (this.stdArrays[this.staId].status == false) {
+      this.stdArrays[this.staId].status = true
+      localStorage.setItem('niro', JSON.stringify(this.stdArrays))
+    }
+    else if (this.stdArrays[this.staId].status == true) {
+      this.stdArrays[this.staId].status = false
+      localStorage.setItem('niro', JSON.stringify(this.stdArrays))
+    }
     $('#statusModal').modal('hide')
   }
-  patchDetails(val, index) {
+  patchDetails(val, id) {
     // debugger
     // console.log(this.stdArrays)
-this.stdArrays.forEach((value,index)=>{
-if(val==value){
-  console.log(val)
-  this.studentForm.patchValue(value)
-  $('#myModal').modal('show')
-}
-})
- 
+    this.stdArrays.forEach((value, index) => {
+      if (val == value) {
+        console.log(val)
+        this.studentForm.patchValue(value)
+        $('#myModal').modal('show')
+      }
+    })
+
   }
   addRow() {
     //   const control= new FormControl(null,[Validators.required]);
@@ -190,15 +163,15 @@ if(val==value){
   deleteRow(index) {
     this.details = <FormArray>this.studentForm.get('details');
     this.details.removeAt(index);
-    // this.multipleanswerPreview = this.studentForm.get('details').value;
+  
   }
-  deleteData(data,indexValue) {
+  deleteData(data, indexValue) {
     console.log(data)
     this.stdArrays.forEach((value, index) => {
       if (value == data) {
         this.stdArrays.splice(index, 1);
-       delete this.stdArrays[index]
-       localStorage.setItem('niro',JSON.stringify(this.stdArrays))
+        delete this.stdArrays[index]
+        localStorage.setItem('niro', JSON.stringify(this.stdArrays))
 
       }
     })
@@ -207,5 +180,5 @@ if(val==value){
 
   }
 }
-  // get MultipleanswerDetail() { return <FormArray>this.MultipleanswerForm.get('details') }
+
 
