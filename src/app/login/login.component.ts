@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataServiceService } from '../service/data-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 loginGroup:FormGroup;
 signupGroup:FormGroup;
 emailPertan=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")){2,}@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  constructor(private formbuilder:FormBuilder ,private router:Router) { 
+  constructor(private formbuilder:FormBuilder ,private router:Router,private _data:DataServiceService) { 
   this.loginGroup = this.formbuilder.group({
     'email': [null, Validators.compose([Validators.required,Validators.pattern(this.emailPertan)])],
     'password':[null,Validators.required]
@@ -35,7 +36,13 @@ viewPass(){
 
 isSignUP:boolean=false;
 signUP(val){
+ 
   return this.isSignUP=val
+}
+signUpSubmit(){
+  if(this.signupGroup.invalid){
+    this.markFormGroupTouched(this.signupGroup)
+  }
 }
 loginFunction(){
   let loginvalues = this.loginGroup.value
@@ -45,20 +52,27 @@ this.router.navigateByUrl('/dashboard/home')
 localStorage.setItem("loginvalues",JSON.stringify(loginvalues))
 
   }
-  else{
-    alert('Check Your email and password')
-  }
-  // this.markFormGroupTouched(loginvalues)
-}
-// private markFormGroupTouched(formGroup: FormGroup) {
-//   (<any>Object).values(formGroup.controls).forEach(control => {
-//     control.markAsTouched();
+  else if(loginvalues.email ==null && loginvalues.password ==null){
+ 
+     this.markFormGroupTouched(this.loginGroup)
 
-//     if (control.controls) {
-//       this.markFormGroupTouched(control);
-//     }
-//   });
-// }
+  }
+  else{
+    alert('Invalid email & password')
+
+  }
+ 
+}
+private markFormGroupTouched(formGroup: FormGroup) {
+  (<any>Object).values(formGroup.controls).forEach(control => {
+    control.markAsTouched();
+
+    if (control.controls) {
+      this.markFormGroupTouched(control);
+    }
+  });
+}
+
 numbervalidation(event) {
   const pattern = /[0-9]/;
   let inputchar = String.fromCharCode(event.charCode)

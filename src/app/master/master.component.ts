@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl, } from '@angular/forms';
 import { makeArray } from 'jquery';
+// import { userInfo } from 'os';
 // import { on } from 'cluster';
 declare var $;
 @Component({
@@ -40,13 +41,15 @@ export class MasterComponent implements OnInit {
     this.getDetails()
 
   }
+ 
   stdArrays = new Array();
   studentVlaues: any;
   val;
 
 
-  submit(index) {
+  submit() {
     this.studentVlaues = this.studentForm.value
+
     // this.studentVlaues.details.status = this.tablestatus
     this.val = this.studentVlaues.details
     // this.val.status=this.tablestatus
@@ -120,8 +123,6 @@ export class MasterComponent implements OnInit {
   tablestatus;
   tableStatus(data) {
     console.log(data.value)
-    // this.tablestatus = data.status = true
-    // console.log(this.tablestatus)
 
   }
   confirmStatus() {
@@ -129,7 +130,7 @@ export class MasterComponent implements OnInit {
 
   }
   cancelStaus() {
-    // for(let i=0;i<this.stdArrays.length;i++){}
+
     console.log(this.staId);
 
     if (this.stdArrays[this.staId].status == false) {
@@ -142,17 +143,25 @@ export class MasterComponent implements OnInit {
     }
     $('#statusModal').modal('hide')
   }
-  patchDetails(val, id) {
-    // debugger
-    // console.log(this.stdArrays)
-    this.stdArrays.forEach((value, index) => {
-      if (val == value) {
-        console.log(val)
-        this.studentForm.patchValue(value)
-        $('#myModal').modal('show')
-      }
-    })
+data_name;
+data_id
+  patchDetails(val, id) : void{
+this.data_id=id
+console.log(this.data_id);
 
+this.data_name=val.name
+
+this.studentForm.patchValue({details:[val]});
+      $('#myModal').modal('show')
+
+  }
+  saveValue(){
+    this.studentVlaues = this.studentForm.value
+    let updatValue = this.studentVlaues.details
+ this.stdArrays[this.data_id]=updatValue[0]
+
+localStorage.setItem('niro', JSON.stringify(this.stdArrays))
+this.studentForm.reset()
   }
   addRow() {
     //   const control= new FormControl(null,[Validators.required]);
@@ -163,7 +172,7 @@ export class MasterComponent implements OnInit {
   deleteRow(index) {
     this.details = <FormArray>this.studentForm.get('details');
     this.details.removeAt(index);
-  
+
   }
   deleteData(data, indexValue) {
     console.log(data)
@@ -176,9 +185,8 @@ export class MasterComponent implements OnInit {
       }
     })
 
-
-
   }
+  
 }
 
 

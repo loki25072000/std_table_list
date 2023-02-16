@@ -81,9 +81,10 @@
                                         <tr [formGroupName]="i" style="padding: 10px; background-color:aliceblue;">
                                             <!--#00ffaf--><!--#19c7bd-->
 
-                                            <td><input type="text" placeholder="Enter Name Here" formControlName="name" >
+                                            <td><input type="text" placeholder="Enter Name Here" formControlName="name">
                                             </td>
-                                            <td><input type="text" placeholder="Enter age Here" formControlName="age" minlength="1" maxlength="2">
+                                            <td><input type="text" placeholder="Enter age Here" formControlName="age"
+                                                    minlength="1" maxlength="2">
                                             </td>
                                             <td>
                                                 <div class="form-check-inline">
@@ -150,11 +151,15 @@
             <!-- Modal footer -->
             <div class="modal-footer mt-1" style="padding: 10px 0;">
                 <div style="margin-right: 5%; position: relative; display: flex;">
-                    <div style="margin-right: 15px;"> <button type="button" style="padding: 5px 12px"
-                            class="btn btn-info" data-dismiss="modal" (click)="submit(i)">Submit</button>
+                    <div *ngIf="data_name!=null" style="margin-right: 15px;"> 
+                        <button type="button" style="padding: 5px 12px" (click)="saveValue()" class="btn btn-success"  data-dismiss="modal">Save</button>
+                    </div>
+                    <div *ngIf="data_name==null" style="margin-right: 15px;"> <button type="button" style="padding: 5px 12px"
+                            class="btn btn-info" data-dismiss="modal"
+                            (click)="submit()">Submit</button>
                     </div>
 
-                    <div><i class="fa-solid fa-plus" style="font-size: 25px;" (click)="addRow(i)"></i></div>
+                    <div *ngIf="data_name==null"><i class="fa-solid fa-plus" style="font-size: 25px;" (click)="addRow(i)"></i></div>
                     <span></span>
                 </div>
 

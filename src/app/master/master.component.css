@@ -14,6 +14,10 @@ input{
     width: 80%;
     margin-left: 10px;
 }
+/* .custom-control-input{
+    width: 28px;
+    margin-left: 48px;
+} */
 .sucess{
 color: rgb(4, 158, 4);
 font-weight: bold;

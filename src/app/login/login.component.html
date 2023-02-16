@@ -21,7 +21,9 @@
                             <label for="password">Password:</label>
                             <input (keypress)="numbervalidation($event)" [type]="changeType?'password':'text'" placeholder="Enter Your Password" class="formControl" maxlength="6"
                                 minlength="6" formControlName="password" >
-                                <span class="eyeIcon" (click)="viewPass()"><i id="eye" [ngClass]="visible?' fa-solid fa-eye-slash ':'fa-solid fa-eye'"></i></span>
+                                <span class="eyeIcon" (click)="viewPass()">
+                                    <i id="eye" [ngClass]="visible?' fa-solid fa-eye-slash ':'fa-solid fa-eye'"></i>
+                                </span>
                                 <!-- <i class="fa-solid fa-eye-slash"></i> -->
                             <small *ngIf="!loginGroup.get('password').valid && loginGroup.get('password').touched">*Enter Valid
                                 Password</small>
@@ -73,7 +75,7 @@
                                 Valid Password</small>
                         </div>
                         <div class="signupBtn mt-2">
-                            <button class="btn btn-info" id="signupBtn" type="button">signUp</button>&nbsp;
+                            <button class="btn btn-info" id="signupBtn" (click)="signUpSubmit()" type="button">signUp</button>&nbsp;
                             &nbsp;
                             <div> <span> <span style="font-size: 18px;">login here</span> <a href="#"
                                 (click)="signUP(false)"><i title="login" class="fa-solid fa-right-to-bracket"></i></a></span></div>

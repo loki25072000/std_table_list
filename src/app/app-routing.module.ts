@@ -15,7 +15,7 @@ const routes: Routes = [
   children:[
     {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent,canActivate:[CanActiveGuard]},
-  {path:'master',component:MasterComponent}
+  {path:'master',component:MasterComponent,canActivate:[CanActiveGuard]}
 ]
 },
   

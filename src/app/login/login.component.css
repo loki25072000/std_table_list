@@ -65,8 +65,14 @@ small{
     font-size: 17px;
     position: absolute;
    cursor: pointer;
-    right: 107px;
-    
+    right: 103px;
+    margin-top: 10px;  
+}
+.eyeIcon{
+
+    position: absolute;
+    margin-left: 15%;
+
 }
 @keyframes myAnimae{
     0%{
